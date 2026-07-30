@@ -10,10 +10,32 @@ public class Main {
        Employee employee1 = new Employee(1L, "John Doe", 50000.0, "Software Engineer", "IT", "2023-01-15", "john.doe@company.com", "123-456-7890", true);
        Employee employee2 = new Employee(2L, "Jane Smith", 60000.0, "Project Manager", "IT", "2022-05-10", "jane.smith@company.com", "098-765-4321", true);
        Employee employee3 = new Employee(3L, "Alice Johnson", 55000.0, "Business Analyst", "IT", "2021-09-20", "alice.johnson@company.com", null, null);
+       Employee employee4 = new Employee(3L, "Alice Johnson", 55000.0, "Business Analyst", "IT", "2021-09-20", "alice.johnson@company.com", null, null);
        EmployeeService employeeService = new EmployeeService();
-       employeeService.addEmployee(employee1);
-       employeeService.addEmployee(employee2);
-       employeeService.addEmployee(employee3);
+       boolean isAdded1 = employeeService.addEmployee(employee1);
+       if(isAdded1){
+            System.out.println("Employee added successfully: " + employee1.getId());
+       } else {
+            System.out.println("Employee already exists or invalid data: " + employee1.getId());
+       }
+       boolean isAdded2 = employeeService.addEmployee(employee2);
+       if(isAdded2){
+            System.out.println("Employee added successfully: " + employee2.getId());
+       } else {
+            System.out.println("Employee already exists or invalid data: " + employee2.getId());
+       }
+       boolean isAdded3 = employeeService.addEmployee(employee3);
+       if(isAdded3){
+            System.out.println("Employee added successfully: " + employee3.getId());
+       } else {
+            System.out.println("Employee already exists or invalid data: " + employee3.getId());
+       }
+       boolean isAdded4 = employeeService.addEmployee(employee4);
+       if(isAdded4){
+            System.out.println("Employee added successfully: " + employee4.getId());
+       } else {
+            System.out.println("Employee already exists or invalid data: " + employee4.getId());
+       }
        List<Employee> employees = employeeService.getAllEmployees();
        Employee searchedEmployee  = employeeService.getEmployeeById(2L);
        if(searchedEmployee != null){

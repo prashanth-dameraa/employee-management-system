@@ -7,14 +7,12 @@ import java.util.List;
 public class EmployeeService {
 
     private EmployeeRepository employeeRepository = new EmployeeRepository();
-    public void addEmployee(Employee employee) {
-        if(employee != null) {
+    public boolean addEmployee(Employee employee) {
+        if(employee != null && employeeRepository.findById(employee.getId()) == null){
             employeeRepository.save(employee);
-            System.out.println("Employee added successfully: " + employee.getId());
+            return true;
         }
-        else {
-            System.out.println("Invalid employee data. Employee not added.");
-        }
+        return false;
     }
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
